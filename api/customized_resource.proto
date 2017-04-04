@@ -30,15 +30,10 @@ message Value {
     repeated string item = 1;
   }
 
-  message Text {
-    string value = 1;
-  }
-
   Type type = 1;
   Scalar scalar = 2;
   Ranges ranges = 3;
   Set set = 4;
-  Text text = 5;
 }
 
 /**
