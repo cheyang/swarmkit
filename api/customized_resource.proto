@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+package docker.swarmkit.v1;
+
+import "gogoproto/gogo.proto";
+
+
+message Value {
+  enum Type {
+    SCALAR = 0;
+    RANGES = 1;
+    SET = 2;
+    TEXT = 3;
+  }
+
+  message Scalar {
+    double value = 1;
+  }
+
+  message Range {
+    uint64 begin = 1;
+    uint64 end = 2;
+  }
+
+  message Ranges {
+    repeated Range range = 1;
+  }
+
+  message Set {
+    repeated string item = 1;
+  }
+
+  message Text {
+    string value = 1;
+  }
+
+  Type type = 1;
+  Scalar scalar = 2;
+  Ranges ranges = 3;
+  Set set = 4;
+  Text text = 5;
+}
+
+/**
+ * Describes a resource on a machine. A resource can take on one of
+ * three types: scalar (double), a list of finite and discrete ranges
+ * (e.g., [1-10, 20-30]), or a set of items. A resource is described
+ * using the standard protocol buffer "union" trick.
+ */
+message CustomizedResource {
+  string name = 1;
+  // Value.Type type = 2;
+  oneof value {
+     Value.Scalar scalar = 3;
+     Value.Ranges ranges = 4;
+     Value.Set set = 5;
+  }
+}
+
+
+message CustomizedResourceRequirements {
+  CustomizedResource limits = 1;
+  CustomizedResource reservations = 2;
+}

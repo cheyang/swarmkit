@@ -3,6 +3,7 @@ syntax = "proto3";
 package docker.swarmkit.v1;
 
 import "types.proto";
+import "customized_resource.proto";
 import "gogoproto/gogo.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/any.proto";
@@ -128,6 +129,9 @@ message TaskSpec {
 	// using the same reconciliation-based mechanism that performs rolling
 	// updates.
 	uint64 force_update = 9;
+
+	// customized ressource
+	repeated CustomizedResourceRequirements customized_resources = 11;
 }
 
 message GenericRuntimeSpec {

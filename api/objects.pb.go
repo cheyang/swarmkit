@@ -7,7 +7,7 @@ package api
 import proto "github.com/gogo/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import google_protobuf "github.com/gogo/protobuf/types"
+import google_protobuf1 "github.com/gogo/protobuf/types"
 import _ "github.com/gogo/protobuf/gogoproto"
 import google_protobuf3 "github.com/gogo/protobuf/types"
 import _ "github.com/docker/swarmkit/protobuf/plugin"
@@ -33,8 +33,8 @@ type Meta struct {
 	Version Version `protobuf:"bytes,1,opt,name=version" json:"version"`
 	// Object timestamps.
 	// Note: can't use stdtime because these fields are nullable.
-	CreatedAt *google_protobuf.Timestamp `protobuf:"bytes,2,opt,name=created_at,json=createdAt" json:"created_at,omitempty"`
-	UpdatedAt *google_protobuf.Timestamp `protobuf:"bytes,3,opt,name=updated_at,json=updatedAt" json:"updated_at,omitempty"`
+	CreatedAt *google_protobuf1.Timestamp `protobuf:"bytes,2,opt,name=created_at,json=createdAt" json:"created_at,omitempty"`
+	UpdatedAt *google_protobuf1.Timestamp `protobuf:"bytes,3,opt,name=updated_at,json=updatedAt" json:"updated_at,omitempty"`
 }
 
 func (m *Meta) Reset()                    { *m = Meta{} }
@@ -349,11 +349,11 @@ func (m *Meta) CopyFrom(src interface{}) {
 	*m = *o
 	github_com_docker_swarmkit_api_deepcopy.Copy(&m.Version, &o.Version)
 	if o.CreatedAt != nil {
-		m.CreatedAt = &google_protobuf.Timestamp{}
+		m.CreatedAt = &google_protobuf1.Timestamp{}
 		github_com_docker_swarmkit_api_deepcopy.Copy(m.CreatedAt, o.CreatedAt)
 	}
 	if o.UpdatedAt != nil {
-		m.UpdatedAt = &google_protobuf.Timestamp{}
+		m.UpdatedAt = &google_protobuf1.Timestamp{}
 		github_com_docker_swarmkit_api_deepcopy.Copy(m.UpdatedAt, o.UpdatedAt)
 	}
 }
@@ -3967,8 +3967,8 @@ func (this *Meta) String() string {
 	}
 	s := strings.Join([]string{`&Meta{`,
 		`Version:` + strings.Replace(strings.Replace(this.Version.String(), "Version", "Version", 1), `&`, ``, 1) + `,`,
-		`CreatedAt:` + strings.Replace(fmt.Sprintf("%v", this.CreatedAt), "Timestamp", "google_protobuf.Timestamp", 1) + `,`,
-		`UpdatedAt:` + strings.Replace(fmt.Sprintf("%v", this.UpdatedAt), "Timestamp", "google_protobuf.Timestamp", 1) + `,`,
+		`CreatedAt:` + strings.Replace(fmt.Sprintf("%v", this.CreatedAt), "Timestamp", "google_protobuf1.Timestamp", 1) + `,`,
+		`UpdatedAt:` + strings.Replace(fmt.Sprintf("%v", this.UpdatedAt), "Timestamp", "google_protobuf1.Timestamp", 1) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -4241,7 +4241,7 @@ func (m *Meta) Unmarshal(dAtA []byte) error {
 				return io.ErrUnexpectedEOF
 			}
 			if m.CreatedAt == nil {
-				m.CreatedAt = &google_protobuf.Timestamp{}
+				m.CreatedAt = &google_protobuf1.Timestamp{}
 			}
 			if err := m.CreatedAt.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
@@ -4274,7 +4274,7 @@ func (m *Meta) Unmarshal(dAtA []byte) error {
 				return io.ErrUnexpectedEOF
 			}
 			if m.UpdatedAt == nil {
-				m.UpdatedAt = &google_protobuf.Timestamp{}
+				m.UpdatedAt = &google_protobuf1.Timestamp{}
 			}
 			if err := m.UpdatedAt.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err

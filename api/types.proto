@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package docker.swarmkit.v1;
 
+import "customized_resource.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/duration.proto";
 import "gogoproto/gogo.proto";
@@ -86,6 +87,9 @@ message NodeDescription {
 
 	// Information about the Docker Engine on the node.
 	EngineDescription engine = 4;
+
+	// Total customized ressource
+	repeated CustomizedResource customized_resources = 5;
 }
 
 message RaftMemberStatus {
