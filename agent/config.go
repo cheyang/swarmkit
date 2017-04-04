@@ -29,6 +29,9 @@ type Config struct {
 
 	// Credentials is credentials for grpc connection to manager.
 	Credentials credentials.TransportCredentials
+
+	// Customized Resources this node offered
+	CustomizedResources []*api.CustomizedResource
 }
 
 func (c *Config) validate() error {

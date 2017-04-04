@@ -14,7 +14,7 @@ message Value {
   }
 
   message Scalar {
-    double value = 1;
+    uint64 value = 1;
   }
 
   message Range {

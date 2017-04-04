@@ -244,4 +244,5 @@ func init() {
 	mainCmd.Flags().Var(&externalCAOpt, "external-ca", "Specifications of one or more certificate signing endpoints")
 	mainCmd.Flags().Bool("autolock", false, "Require an unlock key in order to start a manager once it's been stopped")
 	mainCmd.Flags().String("unlock-key", "", "Unlock this manager using this key")
+	mainCmd.Flags().String("resources", "", "Specify resources node will offer, (gpus:2;disk:409600;ports:[21000-24000];nvidiaGpus:{/dev/nvidia0,/dev/nvida1})")
 }
